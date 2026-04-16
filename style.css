@@ -1,0 +1,594 @@
+@import url("https://fonts.googleapis.com/css?family=Catamaran:400,700|Grand+Hotel");
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Catamaran", sans-serif;
+    margin: 0;
+}
+
+/* Sidebar Menu */
+#menu-toggle { display: none; }
+
+.menu-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    font-size: 30px;
+    cursor: pointer;
+    background: #eee;
+    padding: 5px 12px;
+    border-radius: 5px;
+}
+
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #e5e5e5;
+    z-index: 999;
+    display: none;
+}
+
+#menu-toggle:checked ~ .nav { display: block; }
+.menu-button .close {
+    display: none;
+}
+
+/* Khi checkbox được CHECK (Menu mở) */
+#menu-toggle:checked + .menu-button .open {
+    display: none; /* Ẩn icon ba gạch */
+}
+
+#menu-toggle:checked + .menu-button .close {
+    display: inline-block; /* Hiện icon dấu x */
+}
+
+.nav__list {
+    list-style: none;
+    padding-top: 80px;
+    margin: 0;
+}
+
+.nav__link:link, .nav__link:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #3a3e3b;
+    display: block;
+    padding: 10px 20px;
+    transition: all 0.3s;
+}
+
+.nav__link:hover {
+    background: #beed8c;
+    color: #678e3e;
+    padding-left: 3rem;
+    border-left: 0.5rem solid #678e3e;
+}
+
+/* Header Section - Theo hướng dẫn Màn hình 1 [cite: 9-17] */
+.header {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('image.png');
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.heading_first--animation { animation: slideInRight 5s ease-in-out; } /* [cite: 28] */
+.heading_primary { animation: slideInLeft 5s ease-in-out; } /* [cite: 32] */
+.header__btn:link, .header__btn:visited {
+    animation: show 2s 1s linear; /* [cite: 36] */
+    animation-fill-mode: backwards; /* [cite: 37] */
+    letter-spacing: 0.7rem; /* [cite: 38] */
+}
+@keyframes slideInLeft {
+    0% { opacity: 0.1; transform: translateX(-100%); }
+    50% { opacity: 0.7; transform: translateX(25%); }
+    75% { opacity: 0.9; transform: translateX(-10%); }
+    100% { transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+    0% { opacity: 0.1; transform: translateX(100%); }
+    50% { opacity: 0.7; transform: translateX(-25%); }
+    75% { opacity: 0.9; transform: translateX(10%); }
+    100% { transform: translateX(0); }
+}
+
+@keyframes show {
+    0% { opacity: 0; transform: scale(2); }
+    25% { transform: scale(1.5); }
+    50% { transform: scale(0.9); }
+    75% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+
+.header h2 {
+    font-family: "Grand Hotel", cursive;
+    font-size: 3rem;
+    color: #698f3f;
+    letter-spacing: calc(00.7rem * 1.2);
+}
+
+.header h1 {
+    font-family: "Catamaran", sans-serif;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 6rem;
+}
+
+.btn:link, .btn:visited {
+    color: #3a3e3b;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 1.4rem;
+    font-weight: 700;
+    background-color: #698f3f;
+    outline: 3px solid #698f3f;
+    outline-offset: 4px;
+    padding: 1rem 2rem;
+    letter-spacing: 0.7rem;
+}
+.btn:hover {
+    background-color: #4b6630;
+    outline-color: #4b6630;
+    outline-width: 5px;
+    color: #e5e5e5;
+    letter-spacing: 0.7rem;
+
+}
+#about
+{
+    padding: 8rem 5%;
+    display: grid;
+    justify-items: center;
+    grid-template-columns: 50% 50%;
+
+}
+.about_left {
+    border: 7px solid #698f3f;
+    border-radius: 22px;
+    background-color: #698f3f;
+}
+
+.about_left, .about_right {
+  width: 50%;
+  /* background-color: antiquewhite; */
+}
+
+.about__text {
+  font-size: 1.8rem;
+}
+
+.heading_first {
+    font-family: "Grand Hotel", cursive;
+    font-size: 3rem;
+    color: #698f3f;
+    letter-spacing: calc(0.7rem * 1.2);
+    margin-bottom: 1rem;
+
+}
+
+.heading_second {
+  font-size: 3.4rem;
+  text-transform: uppercase;
+  color: #3a3e3b;
+}
+
+
+.heading_second--white {
+    text-transform: uppercase;
+    font-size: 2.8rem;
+    letter-spacing: 0.3rem;
+    margin-bottom: 2rem;
+  color: #fff;
+}
+
+#features {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    
+}
+
+/* Feature Section - Theo hướng dẫn Màn hình 2 [cite: 20-27] */
+.feature_item {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+    padding: 4rem 2rem;
+    border: 1px solid red;
+    transition: var(--mainTransition);
+}
+
+.feature__title {
+    text-transform: uppercase;
+    font-size: 1.6rem;
+    letter-spacing: calc(0.7rem - 0.2rem);
+    color: #698f3f;
+}
+
+.feature__text {
+    font-size: 1.6rem;
+    color: #3a3e3b;
+}
+
+.feature_item:hover {
+    background-color: #698f3f;
+}
+
+.feature_item:hover .feature__title {
+    color: #fff;
+}
+#product {
+    background-color: #3a3e3b; /* Màu nền tối như trong ảnh */
+    padding: 10rem 5%;
+    display: flex; /* Dàn hàng ngang [cite: 11] */
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap; /* Tự xuống dòng trên màn hình nhỏ */ /* Màu nền dự phòng */
+}
+
+.products__text {
+  color: #fff;
+  font-size: 1.8rem;
+  line-height: 1.8;
+    margin-bottom: 3rem;
+}
+
+.product_img_container img {
+    width: 100%;
+    border-radius: 2rem; /* Bo góc ảnh */
+    margin-top: 2rem;
+    gap: 5rem; 
+}
+
+.product_item {
+    flex: 1;
+    min-width: 300px;
+    max-width: 400px;
+    border: 1px solid red; 
+    text-align: left; 
+    border-bottom: 4px solid #698f3f;
+    transition: var(--mainTransition);
+    
+}
+
+.product__img {
+    border-radius: 22px;
+}
+
+.product-item__title {
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 2rem;
+    letter-spacing: calc(00.7rem - 0.3rem);
+    margin: 2rem 0;
+}
+
+.product-item__price {
+  font-family: "Grand Hotel", cursive;
+  font-size: 2.6rem;
+  color: #698f3f;
+  font-weight: bold;
+}
+
+.product-item__price span {
+  margin-right: 1rem;
+  font-size: 3rem;
+  font-weight: 400;
+}
+
+.btn--small {
+    padding: 0.8rem 1.5rem !important;
+    font-size: 1.2rem !important;
+}
+.services_container_main1 {
+    display: grid;
+    /* Chia làm 3 cột bằng nhau */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 3rem; /* Khoảng cách giữa các thẻ */
+    max-width: 1170px;
+    margin: 0 auto;
+    padding: 10rem 2rem;
+}
+.services_header1 {
+    grid-column: 1 / -1; 
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.explore_text1 {
+    font-family: 'Grand Hotel', cursive; /* Font chữ viết tay */
+    color: #698f3f; /* Màu xanh lá */
+    font-size: 3.5rem;
+    margin-bottom: 5px;
+}
+
+        .section_title1 {
+            font-family: 'Playfair Display', serif; /* Font chữ serif trang trọng */
+            color: #333;
+            font-size: 4.2rem;
+            letter-spacing: 2px; /* Khoảng cách chữ */
+            font-weight: 700;
+        }
+.btn1 {
+    display: inline-block;
+    background-color: #fff;
+    color: #698f3f;
+    padding: 1rem 2.5rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.4rem;
+    transition: background-color 0.3s;
+    background-color: transparent;
+    opacity: 0.5; /* Độ mờ 50%. Có thể chỉnh lại từ 0 đến 1 */
+    transition: all 0.3s ease;
+    
+}
+.btn1:hover {
+    opacity: 1;
+    background-color: #f2f2f2;
+}
+        .feature_item1:hover .feature_content1 {
+            /* Màu nền xanh đậm khi hover */
+            background-color: #4b6630;
+        }
+
+        /* Khi hover vào card: Đổi màu chữ tiêu đề */
+        .feature_item1:hover .feature__title1 {
+            /* Màu chữ trắng khi hover */
+            color: #fff !important;
+        }
+
+        /* =========================================
+           6. Chi tiết Nội dung & Chữ
+           ========================================= */
+.feature__title1 {
+    color: #fff;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 2.5rem;
+    text-transform: capitalize;
+}
+.feature_image1 {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+        /* 4.2. Phần Nội dung (Nền xanh) */
+.feature_content1 {
+    background-color: #698f3f; /* Màu xanh lá */
+    padding: 3rem 2rem;
+    text-align: center;
+    flex-grow: 1; /* Đảm bảo các hộp có chiều cao bằng nhau */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.feature_item1 {
+    display: flex;
+    flex-direction: column; /* Xếp dọc: Ảnh trên, chữ dưới */
+    background-color: #fff;
+    border: 2px solid #698f3f;
+    border-radius: 2rem;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+        .mh
+        {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2; /* Màu nền xám nhạt của trang */
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 50px 0;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    /* --- CONTACT --- */
+.contact { 
+    /* Đổi nền của cả vùng (bao gồm cả chỗ address) trùng màu với textbox */
+    background: #F1F5F8; 
+    padding: 10rem 5%; 
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 5rem; 
+    justify-content: center; 
+}
+.contact-info { 
+    flex: 0 1 400px; 
+    /* Lúc này nền của nó sẽ tự động là #F1F5F8 theo thằng cha .contact */
+}
+
+.contact-item { 
+  margin-bottom: 3rem; 
+}
+.contact-item p { 
+  text-transform: uppercase; 
+  font-weight: 700; 
+  font-size: 1.6rem; 
+}
+.contact-form { 
+    flex: 0 1 700px; /* Tăng từ 500px lên 700px để Form chiếm nhiều không gian ngang hơn */
+    background: #FFFFFF; 
+    border-radius: 0.5rem; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1); 
+}
+.contact-form .heading-first { 
+  text-align: center; 
+  padding-top: 2rem;
+  background-color: #FFFFFF;
+ }
+.heading-first { 
+  font-family: "Grand Hotel", cursive; 
+  color: var(--mainGreen); 
+  font-size: 3.5rem; 
+}
+.heading_contact { 
+    font-family: "Grand Hotel", cursive; 
+    color: #778FA7; 
+    font-size: 4rem; 
+    text-align: center; 
+    padding: 3rem 0;
+      letter-spacing: calc(00.7rem * 1.2);
+
+}
+
+.form-group { 
+    padding: 2rem 5rem 4rem 5rem; /* Tăng padding trái/phải lên 5rem (50px) giúp form nhìn sang và rộng hơn */
+}
+.form-control { 
+    width: 100%; 
+    padding: 1.8rem; 
+    margin-bottom: 2.5rem; 
+    border: none; 
+    background: #F1F5F8; /* Màu nền textbox trùng với màu nền ngoài form */
+    
+    /* ĐÂY LÀ PHẦN BẠN CẦN: */
+    color: #000000;      /* Chữ người dùng gõ vào sẽ có màu ĐEN */
+    
+    border-radius: 0.5rem; 
+    font-family: inherit; 
+    font-size: 1.6rem; 
+    text-transform: uppercase; 
+    box-sizing: border-box; 
+  letter-spacing: calc(00.7rem * 1.2);
+  border: none;
+}
+.form-control::placeholder {
+    color: #000000;
+    opacity: 1; /* Một số trình duyệt làm mờ placeholder, đặt opacity bằng 1 để hiện rõ đen */
+    text-transform: uppercase;
+}
+.submit-btn { 
+    width: 100%; 
+    padding: 2.5rem; 
+    background: #688E40; /* Màu xanh lá */
+    color: #FFFFFF;      /* Chữ trắng */
+    border: none; 
+    font-weight: 700; 
+    text-transform: uppercase; 
+    font-size: 2rem; 
+    cursor: pointer; 
+    transition: var(--mainTransition); 
+    letter-spacing: calc(00.7rem * 1.2);
+}
+
+.submit-btn:hover { 
+    background: #4b6630; 
+}
+.heading-first {
+  font-family: "Grand Hotel", cursive;
+  font-size: 3rem;
+  color: #7da157;
+  letter-spacing: calc(00.7rem * 1.2);
+}
+/* ================= RESPONSIVE ================= */
+
+/* Tablet */
+@media (max-width: 992px) {
+
+    /* FEATURES */
+    #features {
+        grid-template-columns: 50% 50%;
+    }
+
+    /* ABOUT */
+    #about {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .about_left, 
+    .about_right {
+        width: 100%;
+    }
+
+    /* SERVICES */
+    .services_container_main1 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+
+    /* HEADER TEXT */
+    .header h1 {
+        font-size: 4rem;
+    }
+
+    .header h2 {
+        font-size: 2rem;
+    }
+
+    /* FEATURES */
+    #features {
+        grid-template-columns: 1fr;
+    }
+
+    /* PRODUCTS */
+    #product {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* SERVICES */
+    .services_container_main1 {
+        grid-template-columns: 1fr;
+    }
+
+    /* CONTACT */
+    .contact {
+        flex-direction: column;
+    }
+    .container {
+        flex-direction: column;
+    }
+
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+
+    .menu-button {
+        font-size: 24px;
+        padding: 5px 10px;
+    }
+
+    .header h1 {
+        font-size: 3rem;
+    }
+
+    .header h2 {
+        font-size: 1.6rem;
+    }
+
+    .btn {
+        font-size: 1.2rem;
+        padding: 0.8rem 1.5rem;
+    }
+
+}
